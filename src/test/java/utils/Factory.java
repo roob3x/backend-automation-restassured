@@ -37,6 +37,21 @@ public class Factory {
         this.response = response;
     }
 
+    public void getLogin(String url, String endpoint, String username, String password) {
+        Response response = RestAssured
+                .given()
+                .param(username)
+                .param(password)
+                .contentType(ContentType.JSON)
+                .baseUri(url)
+                .when()
+                .get(endpoint)
+                .then()
+                .extract()
+                .response();
+        this.response = response;
+    }
+
     public void post(String url, String endpoint,Object json) {
         Response response = RestAssured
                 .given()

@@ -16,7 +16,6 @@ import static constants.Data.USER_NAME_FIX;
 import static constants.Endpoints.USER;
 import static constants.Url.BASE_URL;
 import static schemas.PostUserPayload.CUSTOM_USER_PAYLOAD;
-import static schemas.PostUserPayload.USER_PAYLOAD;
 
 public class PostUser {
     String json = "";

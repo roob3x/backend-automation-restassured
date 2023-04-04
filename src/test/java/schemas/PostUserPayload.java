@@ -14,7 +14,7 @@ public class PostUserPayload {
             "}";
 
     public static final String USER_PAYLOAD_FIX = "{\n" +
-            "  \"id\": ID,\n" +
+            "  \"id\": 12,\n" +
             "  \"username\": \"mariaassuncao\",\n" +
             "  \"firstName\": \"Maria\",\n" +
             "  \"lastName\": \"Assunçao\",\n" +
