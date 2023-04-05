@@ -5,6 +5,7 @@ import io.cucumber.java.es.Dado;
 import io.cucumber.java.pt.Entao;
 import org.junit.Assert;
 import support.Filters;
+import beans.PetBean;
 import utils.Factory;
 
 import java.util.List;
@@ -20,24 +21,22 @@ public class PostPet {
 
     Map<String, String> firstRow;
     Factory fac = new Factory();
+    public static PetBean petBean = new PetBean();
 
-    @Dado("que preencho os dados minimos do pet como")
-    public void preenchoOsDadosMinimos(DataTable dataTable) {
-        List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
-        firstRow = rows.get(0);
+    @Dado("que preencho os dados minimos raca {string} e nome {string}")
+    public void preenchoOsDadosMinimos(String raca, String nome) {
         json = CUSTOM_PET_PAYLOAD;
-        json = json.replace("IDENTIFICATION", Integer.toString(Filters.generateRandomNumber()));
+        petBean.setId(Filters.generateRandomNumber());
+        json = json.replace("IDENTIFICATION", Integer.toString(petBean.getId()));
         json = json.replace("CATEGORYID", Integer.toString(Filters.generateRandomNumber()));
-        json = json.replace("CATEGORYNAME", firstRow.get("raca"));
-        json = json.replace("PETNAME", firstRow.get("nome"));
+        json = json.replace("CATEGORYNAME", raca);
+        json = json.replace("PETNAME", nome);
         json = json.replace("TAGID", Integer.toString(Filters.generateRandomNumber()));
-        json = json.replace("STATUS", firstRow.get("status"));
-        System.out.println(json);
 
     }
 
     @Entao("valido que o pet foi cadastrado com sucesso")
-    public void validoCadastroUsuario() {
+    public void validoCadastroPet() {
         fac.post(BASE_URL, PET, json);
         Assert.assertEquals(200, fac.getResponse().getStatusCode());
     }

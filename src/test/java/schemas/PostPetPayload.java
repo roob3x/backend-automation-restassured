@@ -17,6 +17,6 @@ public class PostPetPayload {
             "      \"name\": \"string\"\n" +
             "    }\n" +
             "  ],\n" +
-            "  \"status\": \"STATUS\"\n" +
+            "  \"status\": \"available\"\n" +
             "}";
 }

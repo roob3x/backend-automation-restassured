@@ -24,6 +24,10 @@ public class Factory {
         return response;
     }
 
+    public Response getBody() {
+        return response;
+    }
+
     public void get(String url, String endpoint) {
         Response response = RestAssured
                 .given()
@@ -63,6 +67,17 @@ public class Factory {
                 .then()
                 .extract()
                 .response();
+        this.response = response;
+    }
+
+    public void updatePet(String url, String endpoint, String name, String status) {
+        Response response = RestAssured
+                .given()
+                .contentType(ContentType.URLENC)
+                .accept(ContentType.JSON)
+                .formParam("name", name)
+                .formParam("status", status)
+                .post(url + endpoint);
         this.response = response;
     }
 
