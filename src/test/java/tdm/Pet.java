@@ -1,6 +1,6 @@
-package beans;
+package tdm;
 
-public class PetBean {
+public class Pet {
     private int id;
 
     public int getId() {

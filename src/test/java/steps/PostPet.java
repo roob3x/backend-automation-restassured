@@ -1,14 +1,13 @@
 package steps;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.pt.Entao;
 import org.junit.Assert;
 import support.Filters;
-import beans.PetBean;
+import tdm.Pet;
+import tdm.Tdm;
 import utils.Factory;
 
-import java.util.List;
 import java.util.Map;
 
 import static constants.Endpoints.PET;
@@ -21,13 +20,12 @@ public class PostPet {
 
     Map<String, String> firstRow;
     Factory fac = new Factory();
-    public static PetBean petBean = new PetBean();
 
     @Dado("que preencho os dados minimos raca {string} e nome {string}")
     public void preenchoOsDadosMinimos(String raca, String nome) {
         json = CUSTOM_PET_PAYLOAD;
-        petBean.setId(Filters.generateRandomNumber());
-        json = json.replace("IDENTIFICATION", Integer.toString(petBean.getId()));
+        Tdm.pet.setId(Filters.generateRandomNumber());
+        json = json.replace("IDENTIFICATION", Integer.toString(Tdm.pet.getId()));
         json = json.replace("CATEGORYID", Integer.toString(Filters.generateRandomNumber()));
         json = json.replace("CATEGORYNAME", raca);
         json = json.replace("PETNAME", nome);
