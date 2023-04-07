@@ -50,7 +50,9 @@ Projeto para realizar a validacao das API da Petstore, bem como suas rotas afim 
     * Para inserir regras e logicas de metodos, utilize o arquivo src/test/java/support/Filters
         * Obs: Assegure que a logica que voce deseja nao esta realmente implementada nessa classe
     * Em caso de endpoint ainda nao implementado, adicione em src/test/java/constants/Endpoints
+    * O arquivo src/test/java/utils/Factory é responsavel por implementar metodos de comunicacao com as api+endpoints com get,post, etc. caso necessite realizar uma comunicacao ainda implementada, adicione neste arquivo.
     * Caso precise de uma massa mockada, adicione no arquivo src/test/java/constants/Data
+    * Caso precise manipular atributos de novos objetos, criar o objeto com o nome do mesmo em src/test/java/tdm/<nomeObjeto> e encapsule os atributos com get e set. apos isso, instancie o objeto no arquivo Tdm.java. com isso vc podera inserir dados ou recupera-los nos steps ou em outro arquivo que deseja. veja os exemplos implementados nos steps.
     * Adicao de novos schemas insria no arquivo src/test/java/schemas/nomeDoEndPointPayload
 * Obs: Caso enxergue melhorias possiveis na estrutura do projeto, alinhar com a lideranca para entender a melhor forma de ajuste.
 * Thats all folks! enjoy :)
